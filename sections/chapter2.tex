@@ -19,35 +19,51 @@ A reference to \cite{lee}.
 \end{recall}
 
 \begin{definition}
-  A new word.
+  We call something \defemph{normal} if it is special.
 \end{definition}
 
 \begin{lemma}
+  \label{generic lemma}
   Some useful stuff.
 \end{lemma}
 
+\begin{proof}
+  Trivial.
+\end{proof}
+
 \begin{proposition}
+  \label{generic proposition}
   More important stuff.
 \end{proposition}
 
+\begin{proof}
+  Follows directly from \cref{generic lemma}.
+\end{proof}
+
 \begin{theorem}
+  \label{generic theorem}
   Very important stuff.
 \end{theorem}
 
+\begin{proof}
+  Similar to the proof of \cref{generic proposition}.
+\end{proof}
+
 \begin{warning}
-  The technical details are not like you expect.
+  The technical details of the above \lcnamecref{generic theorem} are not like one expects.
 \end{warning}
 
 \begin{corollary}
-  A consequences.
+  An alleged consequence.
+  \qed
 \end{corollary}
 
 \begin{example}
-  An example
+  The most trivial example is the trivial group.
 \end{example}
 
 \begin{remark}
-  Let’s make an innocent observation that will ruin the exam for you.
+  An innocent observation that will ruin the exam for you.
 \end{remark}
 
 
@@ -132,3 +148,157 @@ Delimiters:
   \class{x}
   \quad
 \]
+
+
+
+
+
+\section{Lists}
+
+\noindent
+Standard \texttt{enumerate}:
+\begin{enumerate}
+  \item
+    First entry.
+    \begin{enumerate}
+      \item
+        First subentry.
+      \item
+        Second subentry.
+    \end{enumerate}
+  \item
+    Second entry.
+    \begin{enumerate}
+      \item
+        First subentry.
+      \item
+        Second subentry.
+    \end{enumerate}
+\end{enumerate}
+Standard \texttt{itemize}:
+\begin{itemize}
+  \item
+    First entry.
+    \begin{itemize}
+      \item
+        First subentry.
+      \item
+        Second subentry.
+      \end{itemize}
+  \item
+    Second entry.
+    \begin{itemize}
+      \item
+        First subentry.
+      \item
+        Second subentry.
+    \end{itemize}
+\end{itemize}
+Standard \texttt{description}:
+\begin{description}
+  \item[First entry]
+    Lorem ipsum.
+    \begin{description}
+      \item[First subentry]
+        Lorem ipsum.
+      \item[Second subentry]
+        Lorem ipsum.
+    \end{description}
+  \item[Second entry]
+    Lorem ipsum.
+    \begin{description}
+      \item[First subentry]
+        Lorem ipsum.
+      \item[Second subentry]
+        Lorem ipsum.
+    \end{description}
+\end{description}
+
+\noindent
+Indented \texttt{enumerate}:
+\begin{enumerate*}
+  \item
+    First entry.
+    \begin{enumerate*}
+      \item
+        First subentry.
+      \item
+        Second subentry.
+    \end{enumerate*}
+  \item
+    Second entry.
+    \begin{enumerate*}
+      \item
+        First subentry.
+      \item
+        Second subentry.
+    \end{enumerate*}
+\end{enumerate*}
+Indented \texttt{itemize}:
+\begin{itemize*}
+  \item
+    First entry.
+    \begin{itemize*}
+      \item
+        First subentry.
+      \item
+        Second subentry.
+      \end{itemize*}
+  \item
+    Second entry.
+    \begin{itemize*}
+      \item
+        First subentry.
+      \item
+        Second subentry.
+    \end{itemize*}
+\end{itemize*}
+Indented \texttt{description}:
+\begin{description*}
+  \item[First entry]
+    Lorem ipsum.
+    \begin{description*}
+      \item[First subentry]
+        Lorem ipsum.
+      \item[Second subentry]
+        Lorem ipsum.
+    \end{description*}
+  \item[Second entry]
+    Lorem ipsum.
+    \begin{description*}
+      \item[First subentry]
+        Lorem ipsum.
+      \item[Second subentry]
+        Lorem ipsum.
+    \end{description*}
+\end{description*}
+A list of equivalent statements:
+\begin{equivlist}
+  \item
+    \label{every fd vs has a basis}
+    Every finite-dimensional vector space admits a basis.
+  \item
+    \label{any two of the equalities}
+    Any two of the following conditions hold:
+    \begin{equivlist}
+      \item
+        $1 = 1$.
+      \item
+        $2 = 2$.
+    \end{equivlist} 
+  \item
+    \label{composition is analytic}
+    The composition~${\cos} \circ {\sin} \colon \Real \to \Real$ is analytic.
+\end{equivlist}
+A list of implications or equivalences:
+\begin{implist}
+  \iffitem{every fd vs has a basis}{any two of the equalities}
+    Both statements are true.
+  \iffitem{any two of the equalities}{composition is analytic}
+    Both assertions hold true.
+\end{implist}
+An \texttt{enumerate} item with multiple paragraphs:
+\begin{enumerate}
+  \item
+    \lipsum[1-2]
+\end{enumerate}

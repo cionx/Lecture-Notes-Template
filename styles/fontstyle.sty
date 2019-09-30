@@ -1,0 +1,15 @@
+% fancy Q is enabled for the main font
+% see otfinfo <otffile> for a list of options
+\setmainfont[RawFeature=+calt]{Libertinus Serif}
+
+\setsansfont{Libertinus Sans}
+
+\setmathfont{Libertinus Math}
+
+\newfontfamily{\initialfont}{Libertinus Serif Initials}
+
+% change font size for the field "publishers" on the title page
+\addtokomafont{publishers}{\normalsize}
+
+% change the font for lettrine initials
+%\renewcommand{\LettrineFontHook}{\initialfont}

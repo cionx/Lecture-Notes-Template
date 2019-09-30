@@ -1,3 +1,6 @@
+%%%%% LOADING PACKAGES
+%%%%% NO CONFIGURATION YET (IF POSSIBLE)
+
 % for testing purposes only
 % should be removed for proper use
 \usepackage{lipsum}
@@ -8,39 +11,14 @@
 % git informations in the document
 \usepackage{gitinfo2}
 
-% bibliography
-\usepackage[backend=biber, style=alphabetic, dateabbrev=false, urldate=long]{biblatex}
-\DeclareFieldFormat[book]{pagetotal}{#1~\ppno}
-\bibliography{bibliography.bib}
-% no unplaned surprises with \cite
-\DeclareFieldFormat{postnote}{#1}
-\DeclareFieldFormat{multipostnote}{#1}
-
-% header design
-\usepackage[automark, headsepline, autooneside=false]{scrlayer-scrpage}
-
-% index
-\usepackage[original]{imakeidx}
-\makeindex
-
-% french spacing
-% This disables additional spacing after the end of a sentence.
-\frenchspacing
+% changing the main font
+\usepackage{fontspec}
 
 % better microtypography
 \usepackage{microtype}
 
-% quotation marks
-\usepackage{csquotes}
-
-% general math stuff
-\usepackage{mathtools}
-\usepackage{amssymb}
-\usepackage{extarrows}
-\usepackage{amsthm}
-
-% commutative diagrams
-\usepackage{tikz-cd}
+% header design
+\usepackage[automark, headsepline, autooneside=false]{scrlayer-scrpage}
 
 % capital first letters at paragraph beginnings
 \usepackage{lettrine}
@@ -49,298 +27,74 @@
 % better enumerates
 \usepackage{enumitem}
 
-% changing the font
-% requires the Libertinus font to be installed (with matching names)
-\usepackage{fontspec}
-% unicode-math has to be loaded after mathtools and amssymb
+% bibliography
+\usepackage[backend=biber, style=alphabetic, dateabbrev=false, urldate=long]{biblatex}
+
+% index
+\usepackage[original]{imakeidx}
+
+% quotation marks
+\usepackage{csquotes}
+
+% math stuff
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{extarrows}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+
+% changing the math font
+% has to be loaded after mathtools and amssymb
 \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
-% fancy Q is enabled for the main font
-% see otfinfo <otffile> for a list of options
-\setmainfont[RawFeature=+calt]{Libertinus Serif}
-\setsansfont{Libertinus Sans}
-\setmathfont{Libertinus Math}
-\newfontfamily{\initialfont}{Libertinus Serif Initials}
-% change font size for the field "publishers" on the title page
-\addtokomafont{publishers}{\normalsize}
-% change the font for lettrine initials
-%\renewcommand{\LettrineFontHook}{\initialfont}
-
-% lecture marker and list of lectures
-% initializing the list of lectures
-\addtotoclist{lol}
-\newcommand{\listoflectures}{\listoftoc{lol}}
-\newcommand{\listoflolname}{List of Lectures}
-\setuptoc{lol}{totoc}
-% initializing a lecture counter
-\newcounter{lecture}
-\renewcommand{\thelecture}{Lecture \arabic{lecture}}
-% command for adding descriptions to
-% the current lecture in the list of lectures
-\newcommand{\texttolol}[1]{%
-  \addtocontents{lol}{\smallskip\hspace{2em}\protect\parbox{\linewidth - \@pnumwidth - 2em}{\detokenize{#1}}\par}
-}
-% printing on the left side margin
-\reversemarginpar
-\NewDocumentCommand%
-  {\nextlecture}
-  {mo} % date as optional argument
-  {%
-    % increase the counter
-    \refstepcounter{lecture}%
-    % print in on the left side margin
-    \marginnote{ { \usekomafont{disposition} \thelecture } \\ { \normalfont\small #1 } }
-    \addcontentsline{lol}{chapter}{{\thelecture} (#1)}
-    % print information in the list of lectures
-    \IfValueTF{#2}{ \texttolol{#2} }{ }
-  }
-
 
 % referencing and hyperlinking
+% load hyperref after everything else
+% except for cleveref
 \usepackage{hyperref}
-\hypersetup{
-    colorlinks,
-    linkcolor = {MidnightBlue},
-    % alternative for citecolor: RedViolet
-    citecolor = {BrickRed},
-    urlcolor  = {BrickRed}
-}
 \usepackage[capitalise,noabbrev]{cleveref}
 
-% big penalties to prevent thingsk
-\binoppenalty=\maxdimen         % breaking of binary operators
-\relpenalty=\maxdimen           % breaking of relation symbols
-\widowpenalty=\maxdimen         % widows
-\displaywidowpenalty=\maxdimen  % orphans
-
-% header design with scrlayer-scrpage
-%\ihead{\leftmark}
-%\chead{}
-%\ohead{\rightmark}
-
-% table of contents design
-% more space for page numbers in the toc, default is 1.55
-\renewcommand{\@pnumwidth}{2em}
-% no subsections in the toc
-\setcounter{secnumdepth}{1}
-
-
-%reconstruct the libertine arrow tip for tikz(cd)
-%See TikZ manual, section "Defining New Arrow Tips"
-\pgfdeclarearrow{%
-  name = libertinustip,
-  parameters = { \the\pgfarrowlength },
-  setup code = {%
-    % The different end values
-    \pgfarrowssettipend{0.382\pgfarrowlength}
-    \pgfarrowssetlineend{0\pgfarrowlength}
-    \pgfarrowssetvisualbackend{-0.134\pgfarrowlength}
-    \pgfarrowssetbackend{-0.618\pgfarrowlength}
-    % The convex hull
-    \pgfarrowshullpoint{0.382\pgfarrowlength}{0.037\pgfarrowlength}
-    \pgfarrowshullpoint{-0.493\pgfarrowlength}{0.726\pgfarrowlength}
-    \pgfarrowshullpoint{-0.618\pgfarrowlength}{0.726\pgfarrowlength}
-    \pgfarrowshullpoint{-0.618\pgfarrowlength}{-0.726\pgfarrowlength}
-    \pgfarrowshullpoint{-0.493\pgfarrowlength}{-0.726\pgfarrowlength}
-    \pgfarrowshullpoint{0.382\pgfarrowlength}{0.037\pgfarrowlength}
-    % Saves: Only the length:
-    \pgfarrowssavethe\pgfarrowlength
-  },
-  % the following coordinates are choosen so that the
-  % arrow head has a length parallel to the x-axis
-  % of precisely 1pt
-  drawing code = {%
-    \pgfpathmoveto%
-      {\pgfpoint{0.370\pgfarrowlength}{0.046\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{0.18\pgfarrowlength}{0.11\pgfarrowlength}}%
-      {\pgfpoint{-0.13\pgfarrowlength}{0.33\pgfarrowlength}}%
-      {\pgfpoint{-0.470\pgfarrowlength}{0.708\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.49\pgfarrowlength}{0.73\pgfarrowlength}}%
-      {\pgfpoint{-0.59\pgfarrowlength}{0.73\pgfarrowlength}}%
-      {\pgfpoint{-0.618\pgfarrowlength}{0.708\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.50\pgfarrowlength}{0.43\pgfarrowlength}}%
-      {\pgfpoint{-0.19\pgfarrowlength}{0.07\pgfarrowlength}}%
-      {\pgfpoint{-0.100\pgfarrowlength}{0.000\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.19\pgfarrowlength}{-0.07\pgfarrowlength}}%
-      {\pgfpoint{-0.50\pgfarrowlength}{-0.43\pgfarrowlength}}%
-      {\pgfpoint{-0.618\pgfarrowlength}{-0.708\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.59\pgfarrowlength}{-0.73\pgfarrowlength}}%
-      {\pgfpoint{-0.49\pgfarrowlength}{-0.73\pgfarrowlength}}%
-      {\pgfpoint{-0.470\pgfarrowlength}{-0.708\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.13\pgfarrowlength}{-0.33\pgfarrowlength}}%
-      {\pgfpoint{0.18\pgfarrowlength}{-0.11\pgfarrowlength}}%
-      {\pgfpoint{0.370\pgfarrowlength}{-0.046\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{0.39\pgfarrowlength}{-0.03\pgfarrowlength}}%
-      {\pgfpoint{0.39\pgfarrowlength}{0.03\pgfarrowlength}}%
-      {\pgfpoint{0.370\pgfarrowlength}{0.046\pgfarrowlength}}
-    \pgfpathclose
-    \pgfusepathqfill
-  },
-  defaults = { length = 2.605pt }
-}
-
-% for implications
-\pgfdeclarearrow{%
-  name = libertinusimp,
-  parameters = { \the\pgfarrowlength },
-  setup code = {%
-    % The different end values
-    \pgfarrowssettipend{0.382\pgfarrowlength}
-    \pgfarrowssetlineend{-0.2\pgfarrowlength}
-    \pgfarrowssetvisualbackend{-0.134\pgfarrowlength}
-    \pgfarrowssetbackend{-0.618\pgfarrowlength}
-    % The convex hull
-    \pgfarrowshullpoint{0.382\pgfarrowlength}{0.037\pgfarrowlength}
-    \pgfarrowshullpoint{-0.493\pgfarrowlength}{0.726\pgfarrowlength}
-    \pgfarrowshullpoint{-0.618\pgfarrowlength}{0.726\pgfarrowlength}
-    \pgfarrowshullpoint{-0.618\pgfarrowlength}{-0.726\pgfarrowlength}
-    \pgfarrowshullpoint{-0.493\pgfarrowlength}{-0.726\pgfarrowlength}
-    \pgfarrowshullpoint{0.382\pgfarrowlength}{0.037\pgfarrowlength}
-    % Saves: Only the length:
-    \pgfarrowssavethe\pgfarrowlength
-  },
-  % the following coordinates are choosen so that the
-  % arrow head has a length parallel to the x-axis
-  % of precisely 1pt
-  drawing code = {%
-    \pgfpathmoveto%
-      {\pgfpoint{0.370\pgfarrowlength}{0.046\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{0.18\pgfarrowlength}{0.11\pgfarrowlength}}%
-      {\pgfpoint{-0.13\pgfarrowlength}{0.33\pgfarrowlength}}%
-      {\pgfpoint{-0.470\pgfarrowlength}{0.708\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.49\pgfarrowlength}{0.73\pgfarrowlength}}%
-      {\pgfpoint{-0.59\pgfarrowlength}{0.73\pgfarrowlength}}%
-      {\pgfpoint{-0.618\pgfarrowlength}{0.708\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.50\pgfarrowlength}{0.43\pgfarrowlength}}%
-      {\pgfpoint{-0.19\pgfarrowlength}{0.07\pgfarrowlength}}%
-      {\pgfpoint{-0.100\pgfarrowlength}{0.000\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.19\pgfarrowlength}{-0.07\pgfarrowlength}}%
-      {\pgfpoint{-0.50\pgfarrowlength}{-0.43\pgfarrowlength}}%
-      {\pgfpoint{-0.618\pgfarrowlength}{-0.708\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.59\pgfarrowlength}{-0.73\pgfarrowlength}}%
-      {\pgfpoint{-0.49\pgfarrowlength}{-0.73\pgfarrowlength}}%
-      {\pgfpoint{-0.470\pgfarrowlength}{-0.708\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{-0.13\pgfarrowlength}{-0.33\pgfarrowlength}}%
-      {\pgfpoint{0.18\pgfarrowlength}{-0.11\pgfarrowlength}}%
-      {\pgfpoint{0.370\pgfarrowlength}{-0.046\pgfarrowlength}}
-    \pgfpathcurveto%
-      {\pgfpoint{0.39\pgfarrowlength}{-0.03\pgfarrowlength}}%
-      {\pgfpoint{0.39\pgfarrowlength}{0.03\pgfarrowlength}}%
-      {\pgfpoint{0.370\pgfarrowlength}{0.046\pgfarrowlength}}
-    \pgfpathclose
-    \pgfusepathqfill
-  },
-  defaults = { length = 2.605pt }
-}
-
-\tikzcdset{
-  arrow style = tikz,
-  arrows = {line width  = 0.8 * rule_thickness}
-}
-
-\usetikzlibrary{arrows.meta}
-
-\tikzset{  
-  > = {libertinustip},
-  MyRightarrow/.style = {double distance = 0.95pt, -libertinusimp}
-}
 
 
 
-% theorem-like environments
-\newcounter{everything}[chapter]
-\renewcommand{\theeverything}{\arabic{chapter}.\arabic{everything}}
 
-\theoremstyle{definition}
-\newtheorem{corollary}[everything]{Corollary}
-\newtheorem{definition}[everything]{Definition}
-\newtheorem{example}[everything]{Example}
-\newtheorem{lemma}[everything]{Lemma}
-\newtheorem{proposition}[everything]{Proposition}
-\newtheorem{recall}[everything]{Recall}
-\newtheorem{remark}[everything]{Remark}
-\newtheorem{theorem}[everything]{Theorem}
-\newtheorem{warning}[everything]{Warning}
+%%%%% CONFIGURATION
 
-% text shortcuts
-\newcommand{\defemph}{\emph}
+% options for the class
+\usepackage{styles/classstyle}
 
-% math shortcuts
-\newcommand{\defined}{\coloneqq}
-\newcommand{\defines}{\eqqcolon}
-\newcommand{\grad}{\nabla}
+% changing the fonts
+\usepackage{styles/fontstyle}
 
-% delimiters and decoration
-\DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\class}{[}{]}
-\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{#1, #2}
-\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+% spacing and line breaks
+\usepackage{styles/spacingstyle}
 
-% restrict
-\DeclarePairedDelimiter{\prerestrict}{.}{\rvert}
-\NewDocumentCommand%
-  {\restrict}%
-  {s o m m}%
-  {%
-    \IfBooleanTF{#1}
-    {%
-      \prerestrict*{#3}_{#4}
-    }
-    {%
-      \IfValueTF{#2}
-      {%
-        \prerestrict[#2]{#3}_{#4}
-      }
-      {%
-        #3\rvert_{#4}
-      }
-    }
-  }
+% configuration of hyperref
+\usepackage{styles/refstyle}
 
-% suchthat
-\NewDocumentCommand{\suchthat}{so}{
-  \IfValueTF{#2}
-  {
-    \:#2|\:
-  }
-  {
-    \IfBooleanTF{#1}
-    {
-      \:\middle|\:
-    }
-    {
-      \mathrel{|}      
-    }
-  }
-}
+% header (and foot) design
+\usepackage{styles/headstyle}
 
-% differentials
-\newcommand{\dd}[1]{\,\mathrm{d}#1}
+% title page style, including information
+\usepackage{styles/titlepagestyle}
 
-% arrows
-\newcommand{\xto}{\xrightarrow}
-\newcommand{\xlongto}{\xlongrightarrow}
+% toc style changes
+\usepackage{styles/tocstyle}
 
-% number fields
-\newcommand{\numname}{\mathbb}
-\newcommand{\Natural}{\numname{N}}
-\newcommand{\Integer}{\numname{Z}}
-\newcommand{\Rational}{\numname{Q}}
-\newcommand{\Real}{\numname{R}}
-\newcommand{\Complex}{\numname{C}}
+% configuration for the bibliography
+\usepackage{styles/bibliographystyle}
 
+% configuration of the index
+\usepackage{styles/indexstyle}
+
+% creating the list of lectures and
+% defining the command \nextlecture
+\usepackage{styles/lecture_counter}
+
+% defining mathematical stuff
+\usepackage{styles/mathstyle}
+
+% configuration for tikz(cd)
+\usepackage{styles/tikzstyle}
 
 
 

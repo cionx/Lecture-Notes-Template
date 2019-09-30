@@ -1,0 +1,134 @@
+\chapter{Feature Tests}
+
+\nextlecture{11. October 2019}[Irreducible topological spaces, irreducible components, generic points, minimal prime ideals.]
+
+\lettrine{W}{e test} some things and in particular the predefined macros.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor sed viverra ipsum nunc aliquet bibendum enim. In massa tempor nec feugiat. Nunc aliquet bibendum enim facilisis gravida. Nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper. Amet luctus venenatis lectus magna fringilla. Volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Sagittis orci a scelerisque purus semper eget duis. Nulla pharetra diam sit amet nisl suscipit. Sed adipiscing diam donec adipiscing tristique risus nec feugiat in. Fusce ut placerat orci nulla. Pharetra vel turpis nunc eget lorem dolor. Tristique senectus et netus et malesuada.
+
+
+
+
+
+\section{Text}
+
+Text in \enquote{quotation marks}.
+A reference to \cite{lee}.
+
+\begin{recall}
+  Things you don’t know.
+\end{recall}
+
+\begin{definition}
+  A new word.
+\end{definition}
+
+\begin{lemma}
+  Some useful stuff.
+\end{lemma}
+
+\begin{proposition}
+  More important stuff.
+\end{proposition}
+
+\begin{theorem}
+  Very important stuff.
+\end{theorem}
+
+\begin{warning}
+  The technical details are not like you expect.
+\end{warning}
+
+\begin{corollary}
+  A consequences.
+\end{corollary}
+
+\begin{example}
+  An example
+\end{example}
+
+\begin{remark}
+  Let’s make an innocent observation that will ruin the exam for you.
+\end{remark}
+
+
+
+
+
+\section{Mathematics}
+
+The Fourier transform\index{Fourier transform}:
+\[
+  \mathcal{F}[f](p)
+  =
+  \frac{1}{\sqrt{2\pi}}
+  \int_{-\infty}^\infty
+  f(x) e^{-ipx}
+  \dd{x}
+\]
+A commutative diagram\index{commutative diagram}\index{diagram!commutative}:
+\[
+  \begin{tikzcd}
+    \Integer
+    \arrow[hookrightarrow]{r}
+    \arrow[hookrightarrow]{d}
+    &
+    \Rational
+    \arrow[hookrightarrow]{d}
+    \\
+    \Integer[i]
+    \arrow[hookrightarrow]{r}
+    &
+    \Rational[i]
+  \end{tikzcd}
+\]
+\nextlecture{15. October 2019}[Integral ring extensions, Noether~normalization, Hilbert’s~Nullstellensätze.]
+Yet another diagram:
+\[
+  \begin{tikzcd}
+    \mathcal{C}
+    \arrow[bend left = 50]{r}[above]{F}
+    \arrow[bend right = 50]{r}[below]{G}
+    \arrow[bend left = 50]{r}[below, name = U]{}
+    \arrow[bend right = 50]{r}[above, name = D]{}
+    &
+    \mathcal{D}
+    \arrow[MyRightarrow, from = U, to = D]{l}
+  \end{tikzcd}
+\]
+Absolute value in normal, automatic and manual scaling:
+\[
+  \abs{f}
+  \quad
+  \abs*{\frac{\psi}{\varphi}}
+  \quad
+  \abs[\Bigg]{\frac{\psi}{\varphi}}
+\]
+Norm in normal, automatic and manual scaling:
+\[
+  \norm{f}
+  \quad
+  \norm*{\frac{\psi}{\varphi}}
+  \quad
+  \norm[\Bigg]{\frac{\psi}{\varphi}}
+\]
+Restriction with normal, automatic and manual scaling:
+\[
+  \restrict{(\varphi \circ \psi^{-1})}{\psi(U \cap V)}
+  =
+  \restrict*{(\varphi \circ \psi^{-1})}{\psi(U \cap V)}
+  =
+  \restrict[\big]{(\varphi \circ \psi^{-1})}{\psi(U \cap V)}
+\]
+Sets:
+\[
+  A
+  \defined
+  \{ x \in X \suchthat x^2 = y \}
+\]
+Delimiters:
+\[
+  \inner{v}{w}
+  \quad
+  \class{x}
+  \quad
+\]

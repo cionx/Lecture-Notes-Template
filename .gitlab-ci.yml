@@ -1,0 +1,26 @@
+pages:
+  image: aergus/latex
+  before_script:
+    # install the Libertinus fonts
+  - git clone https://github.com/libertinus-fonts/libertinus
+  - cd libertinus
+  - mkdir -p /usr/share/fonts/opentype/libertinus
+  - cp *.otf /usr/share/fonts/opentype/libertinus
+  - fc-cache
+  - cd ..
+  script:
+    # gitinfo2 for git information in the document
+  - wget "https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/post-xxx-sample.txt" -O generate_gitinfo2
+  - chmod +x generate_gitinfo2
+  - ./generate_gitinfo2
+    # building with latexmk
+    # uses settings from .latexmkrc
+  - latexmk master.tex
+    # extract the results
+  - mkdir public
+  - mv master.pdf public/lecture_notes_template.pdf
+  artifacts:
+    paths:
+    - public
+  only:
+   - master

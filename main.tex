@@ -1,0 +1,53 @@
+\documentclass[%
+  a4paper,
+  10pt,
+  oneside,
+  chapterprefix = true,
+  bibliography = totoc,
+  index = totoc,
+]{scrbook}
+
+\usepackage{generalstyle}
+
+\subject{Lecture Notes for}
+\title{Some Course}
+\author{John Doe}
+\date{
+  Spring Semester 1999\footnote{
+    Last Changes: \texttt{\gitAuthorIsoDate}
+    \hfill
+    Commit: \texttt{\gitAbbrevHash}
+  }
+  \\
+  University of Mathematics
+}
+\publishers{
+  Available at \texttt{\url{https://gitlab.com/cionx/lecture-notes-template}.}
+  \\
+  Please send comments and corrections at \texttt{\href{mailto:stelzner@uni-bonn.de}{stelzner@uni-bonn.de}.}
+}
+
+
+
+\begin{document}
+
+\frontmatter
+\maketitle
+\include{sections/preface}
+\tableofcontents
+\listoflectures
+\include{sections/introduction}
+
+\mainmatter
+\include{sections/chapter1}
+\include{sections/chapter2}
+
+\appendix
+\include{sections/appendix1}
+\include{sections/appendix2}
+
+\backmatter
+\printbibliography
+\printindex
+
+\end{document}

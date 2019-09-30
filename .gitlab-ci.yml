@@ -19,7 +19,7 @@ pages:
   - lualatex main.tex
     # extract the results
   - mkdir public
-  - mv main.pdf public/lecture_notes_template.pdf
+  - mv main.pdf public/lecture-notes-template.pdf
   artifacts:
     paths:
     - public

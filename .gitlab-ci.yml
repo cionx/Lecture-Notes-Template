@@ -15,10 +15,11 @@ pages:
   - ./generate_gitinfo2
     # building with latexmk
     # uses settings from .latexmkrc
-  - latexmk master.tex
+  - latexmk main.tex
+  - lualatex main.tex
     # extract the results
   - mkdir public
-  - mv master.pdf public/lecture_notes_template.pdf
+  - mv main.pdf public/lecture_notes_template.pdf
   artifacts:
     paths:
     - public

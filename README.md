@@ -5,7 +5,7 @@ A compiled version of the template can be downloaded [here][1].
 More detailed information will be added in the future.
 
 To use this template for an actual project you should make the following changes:
-- Adjust in the file `styles/titlepagestyle.sty` the following information:
+- Adjust in the file `styles/titlepage_style.sty` the following information:
   - Title of the lecture.
   - Author name.
   - Date and place.

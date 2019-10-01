@@ -28,7 +28,7 @@
     % increase the counter
     \refstepcounter{lecture}%
     % print in on the left side margin
-    \marginnote{ { \usekomafont{disposition} \thelecture } \\ { \normalfont\small #1 } }
+  \marginnote{\usekomafont{disposition} \thelecture \\ \normalfont #1}
     \addcontentsline{lol}{chapter}{{\thelecture} (#1)}
     % print information in the list of lectures
     \IfValueTF{#2}{ \texttolol{#2} }{ }

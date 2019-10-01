@@ -53,6 +53,11 @@
 \usepackage{hyperref}
 \usepackage[capitalise,noabbrev]{cleveref}
 
+% list of symbols
+% needs to be loaded after hyperref
+\usepackage{tabu}
+\usepackage[symbols, sort = use]{glossaries-extra}
+
 
 
 
@@ -80,8 +85,11 @@
 % toc style changes
 \usepackage{styles/toc_style}
 
-% configuration for the bibliography
+% configuration of the bibliography
 \usepackage{styles/bibliography_style}
+
+% configuration of the list of symbols
+\usepackage{styles/symbols_style}
 
 % configuration of the index
 \usepackage{styles/index_style}

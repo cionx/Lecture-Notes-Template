@@ -17,4 +17,4 @@ To use this template for an actual project you should make the following changes
 - Adjust in the gitlab make file `.gitlab-ci.yml` the name of the resulting pdf document from `lecture-notes-template.pdf` to the name of your choice.
   The download link will be available at `<link to the github project page>/<your choosen file name>`.
 
-[1]: https://cionx.gitlab.io/lecture-notes-template/lecture-notes-template.pdf
+[1]: https://lecture-notes-bonn.gitlab.io/lecture-notes-template/lecture-notes-template.pdf

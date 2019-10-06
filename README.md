@@ -13,7 +13,7 @@ To use this template for an actual project you should make the following changes
 - Delete or adjust the various test files in the subdirectory `sections`.
   Remove the entries in the main file `main.tex` corresponding to the deleted files.
 - Adjust the entries in the bibliography file `bibliography.bib`.
-- Adjust the text of `README.md`.
+- Adjust the text of `README.md` and remove the file `CHANGELOG.txt`.
 - Adjust in the gitlab make file `.gitlab-ci.yml` the name of the resulting pdf document from `lecture-notes-template.pdf` to the name of your choice.
   The download link will be available at `<link to the github project page>/<your choosen file name>`.
 

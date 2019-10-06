@@ -1,0 +1,4 @@
+Version 1.1:
+  Added a list of symbols.
+  Changed the default font size (from 10 to 11).
+  Fixed the position of the index title.

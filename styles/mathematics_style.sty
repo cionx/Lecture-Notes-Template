@@ -1,26 +1,5 @@
-% theorem-like environments
-\newcounter{everything}[chapter]
-\renewcommand{\theeverything}{\arabic{chapter}.\arabic{everything}}
-
-\theoremstyle{definition}
-\newtheorem{corollary}[everything]{Corollary}
-\newtheorem{definition}[everything]{Definition}
-\newtheorem{example}[everything]{Example}
-\newtheorem{lemma}[everything]{Lemma}
-\newtheorem{proposition}[everything]{Proposition}
-\newtheorem{recall}[everything]{Recall}
-\newtheorem{remark}[everything]{Remark}
-\newtheorem{theorem}[everything]{Theorem}
-\newtheorem{warning}[everything]{Warning}
-
-
-
-
-
 % text shortcuts
 \newcommand{\defemph}{\emph}
-
-
 
 
 
@@ -30,13 +9,19 @@
 
 
 
-
-
 % arrows
 \newcommand{\xto}{\xrightarrow}
 \newcommand{\xlongto}{\xlongrightarrow}
 
 
+
+% number fields
+\newcommand{\numname}{\mathbb}
+\newcommand{\Natural}{\numname{N}}
+\newcommand{\Integer}{\numname{Z}}
+\newcommand{\Rational}{\numname{Q}}
+\newcommand{\Real}{\numname{R}}
+\newcommand{\Complex}{\numname{C}}
 
 
 
@@ -53,36 +38,42 @@
 % restrict
 \DeclarePairedDelimiter{\prerestrict}{.}{\rvert}
 \NewDocumentCommand%
-  {\restrict}%
-  {s o m m}%
+{\restrict}%
+{s o m m}%
+{%
+  \IfBooleanTF{#1}
+  {%
+    \prerestrict*{#3}_{#4}
+  }
+  {%
+    \IfValueTF{#2}
+    {%
+      \prerestrict[#2]{#3}_{#4}
+    }
+    {%
+      #3\rvert_{#4}
+    }
+  }
+}
+
+
+
+
+% suchthat
+\NewDocumentCommand%
+{\suchthat}%
+{so}
+{%
+  \IfValueTF{#2}
+  {%
+    \:#2|\:
+  }
   {%
     \IfBooleanTF{#1}
     {%
-      \prerestrict*{#3}_{#4}
-    }
-    {%
-      \IfValueTF{#2}
-      {%
-        \prerestrict[#2]{#3}_{#4}
-      }
-      {%
-        #3\rvert_{#4}
-      }
-    }
-  }
-
-% suchthat
-\NewDocumentCommand{\suchthat}{so}{
-  \IfValueTF{#2}
-  {
-    \:#2|\:
-  }
-  {
-    \IfBooleanTF{#1}
-    {
       \:\middle|\:
     }
-    {
+    {%
       \mathrel{|}      
     }
   }
@@ -92,17 +83,3 @@
 
 
 
-% differentials
-\newcommand{\dd}[1]{\,\mathrm{d}#1}
-
-
-
-
-
-% number fields
-\newcommand{\numname}{\mathbb}
-\newcommand{\Natural}{\numname{N}}
-\newcommand{\Integer}{\numname{Z}}
-\newcommand{\Rational}{\numname{Q}}
-\newcommand{\Real}{\numname{R}}
-\newcommand{\Complex}{\numname{C}}

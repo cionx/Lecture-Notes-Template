@@ -10,6 +10,11 @@
 \displaywidowpenalty = \maxdimen  % orphans
 
 
+% fix a bug in amsmath
+% see https://tex.stackexchange.com/questions/461537/
+\patchcmd{\colon}{{:}}{\mathopen:}{}{}
+
+
 % show overfull hboxes
 \overfullrule=2mm
 

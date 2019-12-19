@@ -1,3 +1,17 @@
-%\ihead{\leftmark}
-%\chead{}
-%\ohead{\rightmark}
+% remove numbers from headmark
+\renewcommand*{\chaptermarkformat}{\thechapter.\enspace}
+\renewcommand*{\sectionmarkformat}{\thesection.\enspace}
+
+% pagenumber in bold
+%\addtokomafont{pagenumber}{\bfseries}
+
+\lehead{\pagemark}
+\rohead{\pagemark}
+
+\lohead{\upshape{\headmark}}
+\rehead{\upshape{\headmark}}
+
+% make foot empty
+\ofoot{}
+\cfoot{}
+\ifoot{}

@@ -16,7 +16,7 @@ pages:
     # building with latexmk
     # uses settings from .latexmkrc
   - latexmk main.tex
-  - lualatex main.tex
+  - xelatex main.tex
     # extract the results
   - mkdir public
   - mv main.pdf public/lecture-notes-template.pdf

@@ -6,21 +6,21 @@
                         leftmargin    = *,
                         listparindent = \parindent,
                         parsep        = 0pt }
-\setlist[enumerate, 1]{ label         = \arabic*) }
-\setlist[enumerate, 2]{ label         = \alph*) }
+\setlist[enumerate, 1]{ label         = {\arabic*.} }
+\setlist[enumerate, 2]{ label         = {\alph*.} }
 
 
 \setlist[itemize]    { wide          = 0pt,
                        leftmargin    = *,
                        listparindent = \parindent,
                        parsep        = 0pt }
-\setlist[itemize, 1]{ label          = {\textbullet} }
-\setlist[itemize, 2]{ label          = {\textopenbullet} }
+\setlist[itemize, 1]{ label = {\textbullet} }
+\setlist[itemize, 2]{ label = {\textopenbullet} }
 
 
-\setlist[description]{ wide          = 0pt,
-                       listparindent = \parindent,
-                       parsep        = 0pt }
+\setlist[description]{  wide          = 0pt,
+                        listparindent = \parindent,
+                        parsep        = 0pt }
 
 
 
@@ -33,26 +33,28 @@
 \newlist{description*}{description}{2}
 
 
-\setlist[enumerate*]   { wide          = 0pt,
-                         leftmargin    = *,
-                         labelindent   = \parindent,
-                         listparindent = \parindent,
-                         parsep        = 0pt }
-\setlist[enumerate*, 1]{ label         = \arabic*)}
-\setlist[enumerate*, 2]{ label         = \alph*)}
+\setlist[enumerate*]   {  wide          = 0pt,
+                          leftmargin    = *,
+                          labelindent   = \parindent,
+                          listparindent = \parindent,
+                          parsep        = 0pt }
+\setlist[enumerate*, 1]{  label         = {\arabic*.},
+                          ref           = {\arabic*} }
+\setlist[enumerate*, 2]{  label         = {\alph*.},
+                          ref           = {\alph*} }
 
 
-\setlist[itemize*]     { wide          = 0pt,
-                         leftmargin    = *,
-                         labelindent   = \parindent,
-                         listparindent = \parindent,
-                         parsep        = 0pt }
-\setlist[itemize*, 1]  { label         = {\textbullet} }
-\setlist[itemize*, 2]  { label         = {\textopenbullet} }
+\setlist[itemize*]     {  wide          = 0pt,
+                          leftmargin    = *,
+                          labelindent   = \parindent,
+                          listparindent = \parindent,
+                          parsep        = 0pt }
+\setlist[itemize*, 1]  {  label         = {\textbullet} }
+\setlist[itemize*, 2]  {  label         = {\textopenbullet} }
 
 
 \setlist[description*]{ listparindent = \parindent,
-                               parsep = 0pt }
+                        parsep        = 0pt }
 
 
 
@@ -69,22 +71,14 @@
                         labelindent   = \parindent,
                         listparindent = \parindent,
                         parsep        = 0pt }
-\setlist[equivlist,1] { label = \roman*) }
-\setlist[equivlist,2] { label = \alph*) }
+\setlist[equivlist,1] { label = {\roman*.},
+                        ref   = {\roman*} }
+\setlist[equivlist,2] { label = {\alph*.},
+                        ref   = {\alph*} }
 
+\setlist[implist]{  wide          = 0pt,
+                    before        = {\renewcommand{\makelabel}{\dotlabel}},
+                    listparindent = \parindent,
+                    parsep        = 0pt }
 
-\setlist[implist]{ wide          = 0pt,
-                   font          = \normalfont,
-                   listparindent = \parindent,
-                   parsep        = 0pt }
-
-% macros to work with implist
-
-
-\newcommand{\textimp}[2]{\ref{#1}~$\implies$~\ref{#2}}
-\newcommand{\textiff}[2]{\ref{#1}~$\iff$~\ref{#2}}
-\newcommand{\impitem}[2]{\item[\textimp{#1}{#2}]}
-\newcommand{\iffitem}[2]{\item[\textiff{#1}{#2}]}
-
-
-
+\newcommand{\dotlabel}[1]{\normalfont #1.}

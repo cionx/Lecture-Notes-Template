@@ -14,7 +14,7 @@
 % see KOMA-Script manual, value tocindent for section,
 % in Chapter 21 (Additional Information about the Main Classes and scrextend)
 \newcommand{\texttolol}[1]{%
-  \addtocontents{lol}{\smallskip\hspace{1.5em}\protect\parbox{\linewidth - \@pnumwidth - 1.5em}{\detokenize{#1}}\par}
+	\addtocontents{lol}{\smallskip\hspace{1.5em}\protect\parbox{\linewidth - \@pnumwidth - 1.5em}{\detokenize{#1}}\par}
 }
 
 % printing margin notes on the left side
@@ -22,14 +22,14 @@
 
 % the main command
 \NewDocumentCommand%
-  {\nextlecture}
-  {mo} % date as optional argument
-  {%
-    % increase the counter
-    \refstepcounter{lecture}%
-    % print in on the left side margin
-  \marginnote{\usekomafont{disposition} \thelecture \\ \normalfont #1}
-    \addcontentsline{lol}{chapter}{{\thelecture} (#1)}
-    % print information in the list of lectures
-    \IfValueTF{#2}{ \texttolol{#2} }{ }
-  }
+	{\nextlecture}
+	{mo} % date as optional argument
+	{%
+		% increase the counter
+		\refstepcounter{lecture}%
+		% print in on the left side margin
+	\marginnote{\usekomafont{disposition} \thelecture \\ \normalfont #1}
+		\addcontentsline{lol}{chapter}{{\thelecture} (#1)}
+		% print information in the list of lectures
+		\IfValueTF{#2}{ \texttolol{#2} }{ }
+	}

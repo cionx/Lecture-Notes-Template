@@ -41,19 +41,19 @@
 {\restrict}%
 {s o m m}%
 {%
-  \IfBooleanTF{#1}
-  {%
-    \prerestrict*{#3}_{#4}
-  }
-  {%
-    \IfValueTF{#2}
-    {%
-      \prerestrict[#2]{#3}_{#4}
-    }
-    {%
-      #3\rvert_{#4}
-    }
-  }
+	\IfBooleanTF{#1}
+	{%
+		\prerestrict*{#3}_{#4}
+	}
+	{%
+		\IfValueTF{#2}
+		{%
+			\prerestrict[#2]{#3}_{#4}
+		}
+		{%
+			#3\rvert_{#4}
+		}
+	}
 }
 
 
@@ -64,19 +64,19 @@
 {\suchthat}%
 {so}
 {%
-  \IfValueTF{#2}
-  {%
-    \:#2|\:
-  }
-  {%
-    \IfBooleanTF{#1}
-    {%
-      \:\middle|\:
-    }
-    {%
-      \mathrel{|}      
-    }
-  }
+	\IfValueTF{#2}
+	{%
+		\:#2|\:
+	}
+	{%
+		\IfBooleanTF{#1}
+		{%
+			\:\middle|\:
+		}
+		{%
+			\mathrel{|}      
+		}
+	}
 }
 
 

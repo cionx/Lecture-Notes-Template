@@ -28,7 +28,12 @@
 \usepackage{enumitem}
 
 % bibliography
-\usepackage[backend=biber, style=alphabetic, dateabbrev=false, urldate=long]{biblatex}
+\usepackage[
+	backend     = biber,
+	style       = alphabetic,
+	dateabbrev  = false,
+	urldate     = long
+]{biblatex}
 
 % index
 \usepackage[original]{imakeidx}
@@ -46,18 +51,27 @@
 
 % changing the math font
 % has to be loaded after mathtools and amssymb
-\usepackage[warnings-off={mathtools-colon,mathtools-overbracket}, partial = upright]{unicode-math}
+\usepackage[
+	warnings-off = {{mathtools-colon,mathtools-overbracket}},
+	partial      = upright
+]{unicode-math}
 
 % referencing and hyperlinking
 % load hyperref after everything else
 % except for cleveref
 \usepackage{hyperref}
-\usepackage[capitalise,noabbrev]{cleveref}
+\usepackage[
+	capitalize,
+	noabbrev
+]{cleveref}
 
 % list of symbols
 % needs to be loaded after hyperref
 \usepackage{tabu}
-\usepackage[symbols, sort = use]{glossaries-extra}
+\usepackage[
+	symbols,
+	sort = use
+]{glossaries-extra}
 
 
 

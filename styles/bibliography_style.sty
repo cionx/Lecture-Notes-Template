@@ -13,3 +13,8 @@
 % no unplaned surprises with \cite
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
+
+% numbers and volumes in bold
+\DeclareFieldFormat[article,book,collection,incollection,proceedings,inproceedings]{number}{\mkbibbold{#1}}
+\DeclareFieldFormat[article,collection,incollection]{volume}{\mkbibbold{#1}}
+

@@ -10,8 +10,62 @@
 
 
 % arrows
-\newcommand{\xto}{\xrightarrow}
-\newcommand{\xlongto}{\xlongrightarrow}
+\renewcommand{\to}{
+	\mathchoice
+	{\longrightarrow}
+	{\rightarrow}
+	{\rightarrow}
+	{\rightarrow}
+}
+\newcommand{\from}{
+	\mathchoice
+	{\longleftarrow}
+	{\leftarrow}
+	{\leftarrow}
+	{\leftarrow}
+}
+\AtBeginDocument{
+	\let\oldmapsto\mapsto
+	\renewcommand{\mapsto}{
+		\mathchoice
+		{\longmapsto}
+		{\oldmapsto}
+		{\oldmapsto}
+		{\oldmapsto}
+	}
+}
+\AtBeginDocument{
+	\let\oldmapsfrom\mapsfrom
+	\renewcommand{\mapsfrom}{
+		\mathchoice
+		{\longmapsfrom}
+		{\oldmapsfrom}
+		{\oldmapsfrom}
+		{\oldmapsfrom}
+	}
+}
+\newcommand{\onetoone}{
+	\mathchoice
+	{\longleftrightarrow}
+	{\leftrightarrow}
+	{\leftrightarrow}
+	{\leftrightarrow}
+}
+\newcommand{\xto}[1]{
+	\mathchoice
+	{\xrightarrow{\enspace #1 \enspace}}
+	{\xrightarrow{#1}}
+	{\xrightarrow{#1}}
+	{\xrightarrow{#1}}
+}
+\newcommand{\xfrom}[1]{
+	\mathchoice
+	{\xleftarrow{\enspace #1 \enspace}}
+	{\xleftarrow{#1}}
+	{\xleftarrow{#1}}
+	{\xleftarrow{#1}}
+}
+
 
 
 
@@ -27,11 +81,8 @@
 
 % delimiters and decoration
 \DeclarePairedDelimiter{\abs}{\lvert}{\rvert}
-\DeclarePairedDelimiter{\class}{[}{]}
-\DeclarePairedDelimiterX{\inner}[2]{\langle}{\rangle}{#1, #2}
+\DeclarePairedDelimiter{\class}{\lbrack}{\rbrack}
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
-
-
 
 
 
@@ -74,7 +125,7 @@
 			\:\middle|\:
 		}
 		{%
-			\mathrel{|}      
+			\mathrel{|}
 		}
 	}
 }

@@ -3,9 +3,14 @@
 
 % adjust the table width to fill out the whole page
 % use longtabu from the tabu package for this
-\renewenvironment{theglossary}%
-	{\begin{longtabu} to \textwidth {@{}lX[l]}}%
-	{\end{longtabu}}
+%\renewenvironment{theglossary}%
+%{%
+%	\begin{longtabu} to \textwidth {{@{}lX[l]}}
+%}%
+%{%
+%	\end{longtabu}
+%}
+% THE ABOVE IS SOMEHOW BROKEN
 
 % fill space after description with dots
 \renewcommand{\glspostdescription}{\dotfill}

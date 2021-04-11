@@ -126,15 +126,21 @@
 
 %%%%% TITLEPAGE CONFIGURATION
 
+\newcommand{\lectureTitle}{}
+\newcommand{\lectureSubtitle}{}
+\newcommand{\authorname}{}
+\newcommand{\onlineadress}{}
+\newcommand{\emailadress}{}
+
 \subject{Notes on}
 
-\title{\textsc{Title of the Lecture Course}}
-\subtitle{Subtitle of the Lecture Course or of These Notes}
+\title{\textsc{\lectureTitle}}
+\subtitle{\lectureSubtitle}
 
 \author{
 	{\normalsize written by}
 	\\
-	Name of Author
+	\authorname
 }
 
 \date{
@@ -150,10 +156,10 @@
 
 \publishers{
 	Available at
-	\url{https://gitlab.com/lecture-notes-bonn/lecture-notes-template}.
+	\url{\onlineadress}.
 	\\
 	Please send comments and corrections to
-	\href{mailto:jendrikstelzner@uni-bonn.de}{jendrikstelzner@uni-bonn.de}.
+	\href{mailto:\emailadress}{\emailadress}.
 }
 
 
@@ -172,6 +178,8 @@
 
 
 %%%%% BIBLIOGRAPHY CONFIGURATION
+
+\newcommand{\bibliographyfile}{}
 
 % add the bibliography to the table of contents
 % for KOMA-Script classes
@@ -207,10 +215,6 @@
 
 % creating the actual list fo symbols
 \makenoidxglossaries
-
-% inputing the list of symbols
-% path is relative to the main file
-\input{symbols}
 
 
 

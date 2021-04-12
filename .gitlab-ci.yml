@@ -8,12 +8,12 @@ pages:
   - cp Libertinus-7.040/static/OTF/*.otf /usr/share/fonts/opentype/libertinus
   - fc-cache
   script:
+  - git submodule update --init --recursive
     # gitinfo2 for git information in the document
   - wget "https://raw.githubusercontent.com/Hightor/gitinfo2/CTAN/post-xxx-sample.txt" -O generate_gitinfo2
   - chmod +x generate_gitinfo2
   - ./generate_gitinfo2
-    # building with latexmk
-    # uses settings from .latexmkrc
+    # building with latexmk, uses settings from .latexmkrc
   - latexmk
     # extract the results
   - mkdir public

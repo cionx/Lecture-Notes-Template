@@ -185,9 +185,6 @@
 % for KOMA-Script classes
 \KOMAoptions{bibliography = totoc}
 
-% file for the bibliography,
-% relative to the main file
-\bibliography{bibliography.bib}
 
 
 

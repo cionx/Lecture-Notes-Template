@@ -131,13 +131,14 @@
 
 %%%%% TITLEPAGE CONFIGURATION
 
+\newcommand{\lectureHeader}{Notes on}
 \newcommand{\lectureTitle}{}
 \newcommand{\lectureSubtitle}{}
 \newcommand{\authorname}{}
 \newcommand{\onlineadress}{}
 \newcommand{\emailadress}{}
 
-\subject{Notes on}
+\subject{\lectureHeader}
 
 \title{\textsc{\lectureTitle}}
 \subtitle{\lectureSubtitle}

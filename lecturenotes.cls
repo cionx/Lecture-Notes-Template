@@ -67,10 +67,15 @@
 
 % Sets the font size
 \KOMAoptions{fontsize = 11pt}
+
 % Adds the words
 %   Chapter #number
 % at the beginning of a chapter
 \KOMAoptions{chapterprefix = true}
+
+% No trailing period in chapter/section/… titles
+\KOMAoptions{numbers = noenddot}
+
 % Same margins left and right
 \KOMAoptions{twoside = semi}
 

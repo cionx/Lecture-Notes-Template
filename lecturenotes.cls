@@ -54,6 +54,7 @@
 
 
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%% CONFIGURATION %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -86,6 +87,9 @@
 
 %%%%% FONT CONFIGURATION
 
+% no sans serif for titles
+\addtokomafont{disposition}{\rmfamily}
+\addtokomafont{descriptionlabel}{\rmfamily}
 % change font size for the field "publishers" on the title page
 \addtokomafont{publishers}{\normalsize}
 
@@ -131,7 +135,7 @@
 
 %%%%% TITLEPAGE CONFIGURATION
 
-\newcommand{\lectureHeader}{Notes on}
+\newcommand{\lectureHeader}{}
 \newcommand{\lectureTitle}{}
 \newcommand{\lectureSubtitle}{}
 \newcommand{\authorname}{}

@@ -27,14 +27,6 @@
 % margin notes
 \RequirePackage{marginnote}
 
-% bibliography
-\RequirePackage[
-	backend     = biber,
-	style       = alphabetic,
-	dateabbrev  = false,
-	urldate     = long
-]{biblatex}
-
 % index
 \RequirePackage[original]{imakeidx}
 \RequirePackage{multicol}

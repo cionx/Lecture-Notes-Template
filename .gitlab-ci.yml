@@ -1,5 +1,6 @@
 pages:
   image: aergus/latex
+
   before_script:
     # install the Libertinus fonts
   - wget "https://github.com/alerque/libertinus/releases/download/v7.040/Libertinus-7.040.zip"
@@ -7,6 +8,7 @@ pages:
   - mkdir -p /usr/share/fonts/opentype/libertinus
   - cp Libertinus-7.040/static/OTF/*.otf /usr/share/fonts/opentype/libertinus
   - fc-cache
+
   script:
   - git submodule update --init --recursive
     # gitinfo2 for git information in the document
@@ -18,8 +20,10 @@ pages:
     # extract the results
   - mkdir public
   - mv test.pdf public/lecture-notes-template.pdf
+
   artifacts:
     paths:
     - public
+
   only:
    - master

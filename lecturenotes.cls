@@ -135,7 +135,7 @@
 
 \subject{\lectureHeader}
 
-\title{\textsc{\lectureTitle}}
+\title{\lectureTitle}
 \subtitle{\lectureSubtitle}
 
 \author{

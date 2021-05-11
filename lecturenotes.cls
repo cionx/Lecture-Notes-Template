@@ -1,5 +1,6 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{lecturenotes}[2021/04/11 Lecture Notes Class]
+\ProvidesClass{lecturenotes}[2021/05/11 Lecture Notes Class]
+
 \LoadClass{scrbook}
 
 
@@ -40,8 +41,6 @@
 	symbols,
 	sort = use
 ]{glossaries-extra}
-
-
 
 
 
@@ -266,9 +265,6 @@
 \newcommand{\texttolol}[1]{%
 	\addtocontents{lol}{\smallskip\hspace{1.5em}\protect\parbox{\linewidth - \@pnumwidth - 1.5em}{\detokenize{#1}}\par}
 }
-
-% printing margin notes on the left side
-\reversemarginpar
 
 % the main command
 \NewDocumentCommand%
